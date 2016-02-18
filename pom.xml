@@ -5,7 +5,7 @@
     <!-- Package info -->
     <groupId>com.cookingfox</groupId>
     <artifactId>rxbus-eventbus-java</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2-SNAPSHOT</version>
     <name>RxBus</name>
     <description>A simple EventBus using RX Java</description>
     <url>http://github.com/cookingfox/rxbus-eventbus-java</url>
@@ -53,7 +53,7 @@
         <developerConnection>
             scm:git:ssh://git@github.com/cookingfox/rxbus-eventbus-java.git
         </developerConnection>
-        <tag>v0.1.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <!-- Distribution -->
