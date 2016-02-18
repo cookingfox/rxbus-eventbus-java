@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Package info -->
+    <groupId>com.cookingfox</groupId>
+    <artifactId>rxbus-eventbus-java</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>RxBus</name>
+    <description>A simple EventBus using RX Java</description>
+    <url>http://github.com/cookingfox/rxbus-eventbus-java</url>
+
+    <!-- Organization -->
+    <organization>
+        <name>Cooking Fox</name>
+        <url>http://www.cookingfox.com</url>
+    </organization>
+
+    <!-- Developers -->
+    <developers>
+        <developer>
+            <id>abelcookingfox</id>
+            <name>Abel de Beer</name>
+            <email>abel@cookingfox.nl</email>
+            <url>https://github.com/cookingfox</url>
+            <organization>Cooking Fox</organization>
+            <organizationUrl>http://www.cookingfox.com</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Amsterdam</timezone>
+        </developer>
+    </developers>
+
+    <!-- Issue management -->
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/cookingfox/rxbus-eventbus-java/issues</url>
+    </issueManagement>
+
+    <!-- Licenses -->
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <!-- Source Control Management -->
+    <scm>
+        <url>http://github.com/cookingfox/rxbus-eventbus-java</url>
+        <connection>scm:git:git://github.com/cookingfox/rxbus-eventbus-java.git</connection>
+        <developerConnection>
+            scm:git:ssh://git@github.com/cookingfox/rxbus-eventbus-java.git
+        </developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <!-- Distribution -->
+    <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <name>cookingfox/rxbus-eventbus-java</name>
+            <url>https://api.bintray.com/maven/cookingfox/maven/rxbus-eventbus-java</url>
+        </repository>
+    </distributionManagement>
+
+    <!-- Properties -->
+    <properties>
+        <!-- Project settings -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.sourceEncoding>UTF-8</project.reporting.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!-- Build -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>net.orfjackal.retrolambda</groupId>
+                <artifactId>retrolambda-maven-plugin</artifactId>
+                <version>2.1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>process-main</goal>
+                            <goal>process-test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Profiles -->
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.4</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.2</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <!-- Dependencies -->
+    <dependencies>
+
+        <dependency>
+            <groupId>io.reactivex</groupId>
+            <artifactId>rxjava</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
