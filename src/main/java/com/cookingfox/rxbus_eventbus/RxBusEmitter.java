@@ -6,6 +6,13 @@ package com.cookingfox.rxbus_eventbus;
 public interface RxBusEmitter {
 
     /**
+     * Alias for {@link #emit(Object)}.
+     *
+     * @see #emit(Object)
+     */
+    <T> void dispatch(T event);
+
+    /**
      * Emit an event object to all observers.
      *
      * @param event The event.

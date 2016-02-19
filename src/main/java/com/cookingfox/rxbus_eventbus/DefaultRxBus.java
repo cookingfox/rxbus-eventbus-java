@@ -51,13 +51,18 @@ public class DefaultRxBus implements RxBus {
     //----------------------------------------------------------------------------------------------
 
     @Override
+    public <T> void dispatch(T event) {
+        emit(event);
+    }
+
+    @Override
     public <T> void emit(T event) {
         subject.onNext(validateEvent(event));
     }
 
     @Override
     public <T> void post(T event) {
-        subject.onNext(validateEvent(event));
+        emit(event);
     }
 
     //----------------------------------------------------------------------------------------------
