@@ -51,6 +51,13 @@ and add the project declaration to your `pom.xml`:
 </dependency>
 ```
 
+## Features
+
+- Simple methods for subscribing to and dispatching events
+- Helper method for converting (["forwarding"](#forwarding-observable-streams-to-events)) an 
+existing stream to the event bus
+- Based on interfaces to make custom implementations and mocking possible.
+
 ## Usage
 
 ### Create an RxBus instance
@@ -155,6 +162,19 @@ Or even a method reference:
 ```java
 rxBus.forward(exampleStream, ExampleStringEvent::new);
 ```
+
+## F.A.Q.
+
+#### Why does this exist? Aren't there enough other EventBus implementations using Rx?
+
+Yes, there are many other implementations available, but I wanted a simple RxJava library that
+
+- [is not just targeted at Android](https://github.com/AndroidKnife/RxBus)
+- [does not rely on extending a custom Event class](https://github.com/kubode/RxEventBus)
+- [is available on jCenter and / or Maven Central](https://github.com/cuimingqiang/rxjava-RxBus)
+- [is not part of some huge library](https://github.com/Netflix/netflix-commons)
+- [does not rely on extra dependencies](https://github.com/stream1984/rxBus)
+- is easy to extend and use.
 
 ## Copyright and license
 
